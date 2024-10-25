@@ -8,11 +8,11 @@ test = pd.read_csv("./MPHY0041/week1/mixture_test.csv")
 
 def KNN(train, test, k=1):
     result = []
-    for i in range(test.shape[0]):
-        distances = np.sqrt(np.sum((train.iloc[:, :2].values - test.iloc[i, :2].values) ** 2, axis=1))
-        k_indices = np.argsort(distances)[:k]
-        k_labels = train.iloc[k_indices, 2].astype(int)
-        k_label = Counter(k_labels).most_common(1)[0][0]
+    for i in range(test.shape[0]): # Iterate over each test sample
+        distances = np.sqrt(np.sum((train.iloc[:, :2].values - test.iloc[i, :2].values) ** 2, axis=1)) # Euclidean distance
+        k_indices = np.argsort(distances)[:k] # Indices of k nearest neighbors
+        k_labels = train.iloc[k_indices, 2].astype(int) # Labels of k nearest neighbors
+        k_label = Counter(k_labels).most_common(1)[0][0] # Most common label
         result.append(k_label)
     return result
 
