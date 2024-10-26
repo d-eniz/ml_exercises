@@ -70,7 +70,7 @@ Load the dataset `sim_competitive.csv`, it contains two input features (x1, x2) 
 
 This exercise uses T2-weighted MR images of the prostate and surrounding tissue (information here). The task to be solved is to automatically segment the prostate in these images. The input images are gray-scale images with 128x128 pixels (below left) and the output should be a binary matrix of size 128x128, where a 1 indicates the prostate (below right).
 
-![img1](./MPHY0041/coursework/assets/img1.png)
+![img1](./assets/img1.png)
 
 The `promise1215.zip` archive contains three sets of images: training, validation, test. For training, there are 30 MR images paired with their ground truth (i.e., masks). For instance, `train/img_02_15.png` is the MRI and `train/lab_02_15.png` is the corresponding ground truth. The function `preprocess_img` computes a series of filters (raw, sobel, gabor, difference of gaussians, etc.) to be used for the machine learning algorithm. For instance, application to the above image results in the following channels (Figure 1). Use the function provided in `create_training_set` to randomly sample 1000 patches of size 21x21 from the 30 training images to generate an initial dataset. The resulting dataset is heavily imbalanced (more background patches than target), the function `sub_sample` is used to generate a random subset of 1000 patches from the entire training data with an approximate 50-50 distribution.
 
@@ -85,7 +85,7 @@ Based on your result from a) select the best model parameters and make predictio
 [8]
 
 
-![img2](./MPHY0041/coursework/assets/img2.png)
+![img2](./assets/img2.png)
 #### Figure 1: Feature channels, Numbered from top left to bottom right: 1. Raw input image 2. Scharr filter 3-6. Gabor filter with frequency 0.2 in four directions 7-10. Gabor filter with frequency 0.4 in four directions 11-14. Gabor filter with frequency 0.6 in four directions 15-18. Gabor filter with frequency 0.8 in four directions 19. Local Binary Pattern (LBP) features 20. Difference of gaussians  
 
 
@@ -102,6 +102,6 @@ As shown in the lectures, post-process your prediction using morphological opera
 (Hint: some morphological operations are implemented in `skimage.morphology`; [link](https://scikit-image.org/docs/stable/api/skimage.morphology.html)). Report how your post-processing influences your DICE score on the validation data.  
 [5]
 
-### f)  
+### 3f)  
 Using your best combination of training data size and patch dimension (from d) and post-processing methods (from e), estimate the performance on unseen samples from the test set. Display the original image, the ground truth, and your segmentations for any 5 images in your test set. Provide average DICE coefficient for the entire test set.  
 [5]
