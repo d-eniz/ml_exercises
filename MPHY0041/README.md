@@ -4,9 +4,6 @@ Below are the weekly exercises from the [Machine Learning in Medical Imaging](ht
 
 Topics for each week have been listed down below for each respective exercise sheet.
 
-## [Coursework 1](./coursework1/README.md) - 25/10/24 - 29/11/24
-- All topics covered from week 1 to week 4
-
 ## [Week 1](./week1/README.md) - 30/09/24 - 04/10/24
 - Least squares
 - Nearest neighbor
